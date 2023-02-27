@@ -1,7 +1,10 @@
+/* eslint-disable prettier/prettier */
 import { IsString } from 'class-validator';
+import { Flavor } from '../entities/flavor.entitiy';
 
 export class CreateCoffeeDto {
   @IsString()
+
   readonly name: string;
 
   @IsString()
