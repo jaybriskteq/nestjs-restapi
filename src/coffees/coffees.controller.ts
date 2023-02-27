@@ -1,4 +1,4 @@
-import {
+ import {
   Controller,
   Get,
   Param,
@@ -7,16 +7,20 @@ import {
   Patch,
   Delete,
   Query,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
 import { CoffeesService } from './coffees.service';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 
+
+
 @Controller('coffees')
 export class CoffeesController {
-  constructor(private readonly coffeesService: CoffeesService) {}
-
+  constructor(private readonly coffeesService: CoffeesService) { }
+  
   @Get()
   findall(@Query() paginationQuery: PaginationQueryDto) {
     //   const { limit, offset } = paginationQuery;
@@ -39,9 +43,15 @@ export class CoffeesController {
   update(@Param('id') id: string, @Body() updateCoffeeDto: UpdateCoffeeDto) {
     return this.coffeesService.update(id, updateCoffeeDto);
   }
-
+ 
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.coffeesService.remove(id);
   }
 }
+
+
+
+Add PostgreSQL with TypeORM
+Dependency Injection
+Application Configuration
