@@ -7,29 +7,36 @@
   Patch,
   Delete,
   Query,
-  UsePipes,
-  ValidationPipe,
 } from '@nestjs/common';
+import { resolve } from 'path';
+import { Public } from 'src/common/decorators/public.docorators';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
 import { CoffeesService } from './coffees.service';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
+import { ParseIntPipe } from '../common/pipes/parse-int/parse-int.pipe';
+import { ApiForbiddenResponse, ApiTags } from '@nestjs/swagger/dist';
 
 
-
+@ApiTags('coffees')
 @Controller('coffees')
 export class CoffeesController {
   constructor(private readonly coffeesService: CoffeesService) { }
   
+ 
+  @ApiForbiddenResponse({description: 'Forbidden'})
+  @Public()
   @Get()
-  findall(@Query() paginationQuery: PaginationQueryDto) {
+  async findall(@Query() paginationQuery: PaginationQueryDto) {
     //   const { limit, offset } = paginationQuery;
+   
+    // await new Promise(resolve  => setTimeout(resolve , 5000))
     return this.coffeesService.findAll(paginationQuery);
   }
-
+ 
   @Get(':id')
-  findone(@Param('id') id: number) {
-    // console.log(typeof id);
+  findone(@Param('id', ParseIntPipe) id: number) {
+    console.log(id);
     return this.coffeesService.findOne(' ' + id);
   }
 
@@ -51,7 +58,4 @@ export class CoffeesController {
 }
 
 
-
-Add PostgreSQL with TypeORM
-Dependency Injection
-Application Configuration
+ 

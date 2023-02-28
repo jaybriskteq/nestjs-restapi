@@ -22,7 +22,7 @@ export class CoffeesService {
     @Inject(COFFEE_BRANDS) coffeeBrands: string[],
     private readonly configService: ConfigService,
   ) {
-    // console.log('coffeeBrands');
+    console.log('coffeeBrands');
 
     const datahost = this.configService.get('database.host', 'localhost');
     console.log(datahost);
