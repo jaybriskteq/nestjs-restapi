@@ -9,8 +9,8 @@
   Query,
 } from '@nestjs/common';
 import { resolve } from 'path';
-import { Public } from 'src/common/decorators/public.docorators';
-import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
+import { Public } from '../common/decorators/public.docorators';
+import { PaginationQueryDto } from '../common/dto/pagination-query.dto/pagination-query.dto';
 import { CoffeesService } from './coffees.service';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';

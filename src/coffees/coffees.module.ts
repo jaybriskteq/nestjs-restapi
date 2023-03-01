@@ -1,8 +1,7 @@
 import { Injectable, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config/dist';
 import { TypeOrmModule } from '@nestjs/typeorm/dist';
-;
-import { Event } from 'src/events/entities/event.entity';
+import { Event } from '../events/entities/event.entity';
 
 import { CoffeesController } from './coffees.controller';
 import { CoffeesService } from './coffees.service';

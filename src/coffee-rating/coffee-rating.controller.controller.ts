@@ -1,7 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { CoffeesService } from 'src/coffees/coffees.service';
-import { Public } from 'src/common/decorators/public.docorators';
-import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
+import { CoffeesService } from '../coffees/coffees.service';
+import { Public } from '../common/decorators/public.docorators';
+import { PaginationQueryDto } from '../common/dto/pagination-query.dto/pagination-query.dto';
 
 @Controller('coffee-rating')
 export class CoffeeRatingControllerController {
