@@ -3,9 +3,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CoffeesModule } from './coffees/coffees.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [CoffeesModule, MongooseModule.forRoot(process.env.MONGO_URI)],
+  imports: [
+    ConfigModule.forRoot(),
+    CoffeesModule,
+    MongooseModule.forRoot(process.env.MONGO_URI),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
