@@ -3,7 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CoffeesModule } from './coffees/coffees.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Mongoose } from 'mongoose';
 
 @Module({
   imports: [
