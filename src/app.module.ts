@@ -5,12 +5,7 @@ import { CoffeesModule } from './coffees/coffees.module';
 import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [
-    CoffeesModule,
-    MongooseModule.forRoot(
-      'mongodb+srv://JayRanpariya:jay04052002@node.tnxl6.mongodb.net/nestjs-DB?retryWrites=true&w=majority',
-    ),
-  ],
+  imports: [CoffeesModule, MongooseModule.forRoot(process.env.MONGO_URI)],
   controllers: [AppController],
   providers: [AppService],
 })
